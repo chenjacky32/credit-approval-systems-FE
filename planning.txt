@@ -1,0 +1,155 @@
+Buatkan saya planning untuk membuat Frontend untuk aplikasi credit-approval-system
+yang mana akan di implementasikan oleh Junior Frontend Developer atau AI Model yang
+lebih murah.
+
+TECH STACK:
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS 4
+- TanStack Table
+- TanStack Query
+
+FONTS:
+- Inter
+
+COLOR PALLETE:
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00a86b;
+  --color-primary-hover: #008f5b;
+  --color-primary-light: #e6f7f0;
+
+  --color-heading: #17221d;
+  --color-body: #52605a;
+
+  --color-background: #f7f9f8;
+  --color-card: #ffffff;
+  --color-border: #e2e8e5;
+
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-rejected: #dc2626;
+}
+
+Fitur yang harus ada:
+1. Halaman Login    
+    Form Input:
+    {
+        "username": "string",
+        "password": "string"
+    }
+
+2. Halaman Register
+    Form Input:
+    {
+        "username": "string",
+        "password": "string",
+        "fullName": "string"
+    }
+
+3. Halaman Submission List dengan 
+    - Search dan Filter berdasarkan status ("SUBMIT" | "APPROVE" | "REJECT")
+    - Pagination Button untuk navigasi page next dan previous dan go to specific page
+    - Show all submission data in table
+
+    isi kolom tabel:
+    a) Nama lengkap nasabah
+    b) Tipe pengajuan
+    c) Nominal pengajuan
+    d) Tenor
+    e) Tagihan nasabah per bulan
+    f) Tanggal pengajuan
+    g) Status (Disetujui / Ditolak)
+    h) Aksi
+        a) Tombol Setujui
+        b) Tombol Tolak
+        c) Tombol Detail
+
+    Format Response API:
+    {
+        "status": "ok",
+        "message": "Submission list retrieved successfully",
+        "meta": {
+            "page": 1,
+            "size": 10,
+            "totalRecord": 1,
+            "totalPages": 1,
+            "hasPrevPage": false,
+            "hasNextPage": false
+        },
+        "data": [
+                    {
+                    "id": 1,
+                    "fullName": "John Doe",
+                    "type": "MOTORCYCLE",
+                    "amount": 10000000,
+                    "tenor": 12,
+                    "monthlyBilling": 3000000,
+                    "submittedAt": "2022-01-01T00:00:00.000Z",
+                    "status": "SUBMIT | APPROVE | REJECT"
+                    }
+                ]
+    }
+
+4. Halaman Submission Detail
+
+    Format Response API:
+    {
+        "status": "ok",
+        "message": "Submission detail retrieved successfully",
+        "data": {
+            "id": 1,
+            "fullName": "John Doe",
+            "type": "MOTORCYCLE",
+            "amount": 10000000,
+            "tenor": 12,
+            "monthlyBilling": 3000000,
+            "submittedAt": "2022-01-01T00:00:00.000Z",
+            "status": "SUBMIT | APPROVE | REJECT"
+        }
+    }
+
+5. Halaman Submission Create
+
+    Label Input:
+    a) Nama lengkap nasabah
+    b) Tipe pengajuan (Sepeda Motor / Mobil / Multiguna)
+    c) Nominal pengajuan
+    d) Tenor (bulan)
+    e) Pendapatan bulanan nasabah
+    f) Catatan
+
+    Form input request:
+    {
+        "fullName": "string",
+        "type": "MOTORCYCLE | CAR | MULTIPURPOSE",
+        "amount": "number",
+        "tenor": "number",
+        "monthlyIncome": "number",
+        "notes": "string"
+    }
+
+6. Halaman Submission Update Status
+    Melalui Pop Up dari button yang di trigger.
+    jika button approve di klik akan mengirim request "APPROVE"
+    jika button reject di klik akan mengirim request "REJECT"
+
+    Form input request:
+    {
+        "status": "SUBMIT | APPROVE | REJECT"
+    }
+
+
+DO:
+- Buatkan saya Wireframe untuk setiap halaman dengan bentuk ASCII.
+- Gunakan Typescript.
+- Gunakan Tailwind CSS.
+- Gunakan TanStack Table.
+- Gunakan TanStack Query.
+
+
+DON'T:
+- Jangan menginstall dan menggunakan shadcn ui.
+- Jangan menginstall library yang tidak di perlukan.
+- Jangan menggunakan styling warna secara langsung menggunakan hext code, tapi gunakan warna yang sudah di definisikan di file "theme.ts".
